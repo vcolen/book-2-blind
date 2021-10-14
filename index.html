@@ -5,39 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/10b019f542.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Book to Blind</title>
   </head>
 
   <header>
-    <div id="navbar"><p>Book 2 Blind</p></div>
+    <div id="navbar">
+      <a href="#" id="nav-item"> <i class="fas fa-home"></i> Home</a>
+      <p>|</p>
+      <a href="#" id="nav-item"><i class="fas fa-book"></i> Livros</a>
+      <p>|</p>
+      <a href="#" id="nav-item"><i class="far fa-file-alt"></i> Textos</a>
+      <p>|</p>
+      <a href="#" id="nav-item"><i class="far fa-address-card"></i> Sobre</a>
+    </div>
   </header>
 
   <body>
     <div id="file-interaction">
       <div id="file-preview">
-        <img id="preview" src="img.png" alt="file-preview" />
+        <img id="preview" src="book.png" alt="file-preview" />
       </div>
       <div id="button-div">
         <form runat="server">
           <label class="custom-file-upload">
             <input accept="application/pdf" type="file" id="pdfInput" />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              style="margin: -4"
-              class="feather feather-upload"
-            >
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="17 8 12 3 7 8"></polyline>
-              <line x1="12" y1="3" x2="12" y2="15"></line>
-            </svg>
+            <i class="fas fa-file-upload"></i>
             Inserir arquivo
           </label>
         </form>
