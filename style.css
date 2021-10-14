@@ -44,13 +44,15 @@ input[type="file"] {
   font-family: sans-serif;
   font-weight: bold;
   transition: 0.25s;
+  border: thick #eaeaea solid;
 }
 
 .custom-file-upload:hover, #nav-item:hover {
-  background-color: #08d9d6;
+  background-color: #252a34;
   cursor: pointer;
-  color: #252a34;
+  color: #ff2e63;
   border-color: #ff2e63;
+  box-shadow: 30px;
 }
 
 #preview {
