@@ -25,32 +25,10 @@
   </header>
 
   <body>
-    <div id="file-interaction">
-      <div id="file-preview">
-        <img id="preview" src="book.png" alt="file-preview" />
-      </div>
-      <div id="button-div">
-        <form runat="server">
-          <label class="custom-file-upload">
-            <input accept="application/pdf" type="file" id="pdfInput" />
-            <i class="fas fa-file-upload"></i>
-            Inserir arquivo
-          </label>
-        </form>
-      </div>
-    </div>
+
   </body>
 
   <footer>
     <div id="navbar"><p>Book 2 Blind</p></div>
   </footer>
-
-  <script>
-    pdfInput.onchange = (previewFile) => {
-      const [file] = pdfInput.files;
-      if (file) {
-        preview.src = URL.createObjectURL(file);
-      }
-    };
-  </script>
 </html>
