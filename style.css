@@ -1,6 +1,7 @@
 body {
-  background-color: #252a34;
+  background-color: #1d1d1f;
 }
+
 a {
   text-decoration: none;
 }
@@ -20,36 +21,56 @@ a {
   display: flex;
 }
 
-#file-interaction {
-  background-color: #252a34;
-  font-size: 3.2em;
-  height: 15em;
-  text-align: center;
-  padding: 5;
-  display: flex;
-  margin: 30px;
-  flex-direction: column;
-}
-
-input[type="file"] {
-  display: none;
-}
-
-.custom-file-upload, #nav-item {
+.custom-file-upload,
+#nav-item {
   margin: auto;
   background-color: #ff2e63;
   color: #eaeaea;
   width: fit-content;
-  padding: 10px ;
+  padding: 10px;
   border-radius: 32px;
-  font-family: sans-serif;
+  font-family: "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   transition: 0.25s;
   border: thick #eaeaea solid;
 }
 
-.custom-file-upload:hover, #nav-item:hover {
-  background-color: #252a34;
+h1 {
+  margin: auto;
+  color: #eaeaea;
+  width: fit-content;
+  padding: 30px;
+  font-family: "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 3em;
+  text-align: center;
+}
+
+.lower-title {
+  color: #eaeaea;
+  width: fit-content;
+  font-family: "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+#description {
+  text-align: center;
+  display: block;
+  color: #eaeaea;
+  width: 50%;
+  margin: auto;
+  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-weight: normal;
+  font-size: x-large;
+}
+
+#nav-item:hover {
+  background-color: #1d1d1f;
   cursor: pointer;
   color: #ff2e63;
   border-color: #ff2e63;
@@ -57,6 +78,54 @@ input[type="file"] {
 }
 
 #preview {
-    max-width: 8em;
-    margin-bottom: 30px;
+  max-width: 8em;
+  margin-bottom: 30px;
+}
+
+iframe {
+  margin: 30px;
+}
+
+#book-details {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+  margin: 2em 0 2em 0;
+}
+
+#book-img-detail {
+  width: 400px;
+  height: 500px;
+  margin-left: 30%;
+}
+
+#book-details > #detailed-description {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto;
+}
+
+#book-details > #detailed-description > h1 {
+  grid-row: 1;
+  width: 50%;
+}
+
+#book-details > #detailed-description > p {
+  grid-row: 2;
+  width: 50%;
+}
+
+#book-details > #detailed-description > a {
+  grid-row: 3;
+  color: #eaeaea;
+  width: fit-content;
+  padding: 20px;
+  font-family: "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 3em;
+}
+
+#book-details > #detailed-description > a:hover {
+  color: #08d9d6;
 }
