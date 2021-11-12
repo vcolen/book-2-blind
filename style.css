@@ -86,7 +86,7 @@ iframe {
   margin: 30px;
 }
 
-#book-details {
+#book-summary {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 10px;
@@ -97,25 +97,28 @@ iframe {
   width: 400px;
   height: 500px;
   margin-left: 30%;
+  border: thick solid white;
+  border-radius: 24px;
 }
 
+#book-summary > #detailed-description,
 #book-details > #detailed-description {
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto auto auto;
 }
 
-#book-details > #detailed-description > h1 {
+#book-summary > #detailed-description > h1 {
   grid-row: 1;
   width: 50%;
 }
 
-#book-details > #detailed-description > p {
+#book-summary > #detailed-description > p {
   grid-row: 2;
   width: 50%;
 }
 
-#book-details > #detailed-description > a {
+#book-summary > #detailed-description > a {
   grid-row: 3;
   color: #eaeaea;
   width: fit-content;
@@ -128,4 +131,14 @@ iframe {
 
 #book-details > #detailed-description > a:hover {
   color: #08d9d6;
+}
+
+#summary {
+  text-align: left;
+  color: #eaeaea;
+  margin: auto;
+  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-weight: normal;
+  font-size: x-large;
 }
