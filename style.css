@@ -52,7 +52,7 @@ h1 {
   font-family: "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont,
     "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 600;
-  font-size: 3em;
+  font-size: 6em;
   text-align: center;
 }
 
@@ -85,7 +85,7 @@ h2 {
   font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica,
     Arial, sans-serif;
   font-weight: normal;
-  font-size: x-large;
+  font-size: xx-large;
 }
 
 #nav-item:hover {
@@ -134,7 +134,6 @@ iframe {
 
 #book-summary > #detailed-description > p {
   grid-row: 2;
-  width: 50%;
 }
 
 #book-summary > #detailed-description > a {
@@ -164,39 +163,59 @@ iframe {
 
 #all-books {
   display: grid;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: auto auto auto auto auto;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
   row-gap: 30px;
-  justify-content: center;
 }
 
 #all-books > #book {
   display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto auto;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 20% 80%;
+  border-bottom: thin solid white;
   row-gap: 30px;
+  padding-bottom: 30px;
 }
 
 #all-books > #book > img {
-  width: 200px;
-  height: 300px;
+  width: 80%;
+  height: 90%;
   border-radius: 24px;
   border: thick solid white;
   text-align: center;
-  grid-row: 2;
-  margin-left: 26%;
+  grid-column: 1;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  margin-left: 10%;
+  max-height: 500px;
 }
 
 #all-books > #book > h2 {
   grid-row: 1;
+  grid-column: 2;
+  text-align: center;
+  font-size: 4em;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
 }
 
 #all-books > #book > p {
-  grid-row: 3;
-  text-align: left;
+  grid-row: 2;
+  grid-column: 2;
   color: #eaeaea;
   font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica,
     Arial, sans-serif;
   font-weight: normal;
-  font-size: large;
+  font-size: xx-large;
+  text-align: left;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 7; /* number of lines to show */
+  -webkit-box-orient: vertical;
 }
