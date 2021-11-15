@@ -186,8 +186,10 @@ iframe {
   grid-column: 1;
   grid-row-start: 1;
   grid-row-end: 3;
-  margin-left: 10%;
   max-height: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #all-books > #book > h2 {
@@ -218,4 +220,13 @@ iframe {
   display: -webkit-box;
   -webkit-line-clamp: 7; /* number of lines to show */
   -webkit-box-orient: vertical;
+}
+
+.integrante {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
