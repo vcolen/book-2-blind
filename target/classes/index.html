@@ -16,7 +16,7 @@
     <div id="navbar">
       <a href="index.html" id="nav-item"> <i class="fas fa-home"></i> Home</a>
       <p>|</p>
-      <a href="detalhe-livros.html" id="nav-item"
+      <a href="detalhe.html" id="nav-item"
         ><i class="fas fa-book"></i> Livros</a
       >
       <p>|</p>
@@ -27,6 +27,19 @@
   </header>
 
   <body>
+    <form class="form--register" action="http://localhost:6789/usuario" method="post" id="user-form-add">
+      <p>Nome:</p>          
+      <input class="input--register" type="text" name="nome" value="" placeholder="Usu�rio">
+      <p>Senha:</p>              
+      <input class="input--register" type="text" name="senha" value="" placeholder="Digite a senha">
+      <input type="submit" value="Cadastrar" class="input--main__style input--button">
+    </form>
+
+    <form action="http://localhost:6789/usuario"  method="get" id="user-form-all">
+      <br><br><br>
+    <input type="submit" value="Listar" class="input--consult__style input--button">
+  </form>
+  
     <h1>Como usar a plataforma?</h1>
     <p id="description">
       Nós, da Book 2 Blind, pensamos em tudo para fazer da sua experiência a

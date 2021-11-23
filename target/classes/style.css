@@ -162,7 +162,9 @@ h2 {
   margin-right: auto;
 }
 
-.ler {
+#book-summary > a {
+  grid-row: 2;
+  grid-column: 2;
   color: #eaeaea;
   width: fit-content;
   padding: 20px;
@@ -173,12 +175,12 @@ h2 {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 0px;
 }
 
 #book-details > #detailed-description > a:hover {
   color: #08d9d6;
 }
-
 
 /*****************fim detalhe livros************/
 
@@ -212,7 +214,7 @@ h2 {
   margin-right: auto;
 }
 
-#all-books > #book > h2 {
+#all-books > #book > h2, #all-books > #book > a > h2 {
   grid-row: 1;
   grid-column: 2;
   text-align: center;
@@ -223,6 +225,11 @@ h2 {
   display: -webkit-box;
   -webkit-line-clamp: 2; /* number of lines to show */
   -webkit-box-orient: vertical;
+  transition: 0.25s;
+}
+
+#all-books > #book > a > h2:hover, #all-books > #book > h2:hover {
+  color:#08d9d6;
 }
 
 #all-books > #book > p {

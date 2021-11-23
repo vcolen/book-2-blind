@@ -1,0 +1,259 @@
+body {
+  background-color: #1d1d1f;
+}
+
+footer {
+  margin-top: 30px;
+}
+
+b {
+  color: #ff2e63;
+}
+
+a {
+  text-decoration: none;
+}
+
+#navbar,
+#bottom-bar {
+  /* background-color: #38b6ff; */
+  background-color: #08d9d6;
+  color: #eaeaea;
+  font-size: 3.2em;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 30;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+}
+
+.custom-file-upload,
+#nav-item {
+  margin: auto;
+  background-color: #ff2e63;
+  color: #eaeaea;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 32px;
+  font-family: "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  transition: 0.25s;
+  border: thick #eaeaea solid;
+}
+
+h1 {
+  margin: auto;
+  color: #eaeaea;
+  width: fit-content;
+  padding: 30px;
+  font-family: "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 6em;
+  text-align: center;
+}
+
+h2 {
+  margin: auto;
+  padding-top: 20px;
+  color: #eaeaea;
+  font-family: "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.lower-title {
+  color: #eaeaea;
+  width: fit-content;
+  font-family: "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+#description {
+  text-align: center;
+  display: block;
+  color: #eaeaea;
+  width: 50%;
+  margin: auto;
+  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-weight: normal;
+  font-size: xx-large;
+}
+
+#nav-item:hover {
+  background-color: #1d1d1f;
+  cursor: pointer;
+  color: #ff2e63;
+  border-color: #ff2e63;
+  box-shadow: 30px;
+}
+
+#preview {
+  max-width: 8em;
+  margin-bottom: 30px;
+}
+
+/*****detalhes dos livros *******/
+
+#book-summary {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 20% 60% 20%;
+  grid-gap: 10%;
+  margin-top: 30px;
+}
+
+#book-img-detail {
+  width: 90%;
+  height: 100%;
+  border: thick solid white;
+  border-radius: 24px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  grid-column: 1;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+#book-summary > #detailed-description {
+  grid-column: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+#book-summary > #detailed-description > h2 {
+  grid-row: 1;
+  text-align: center;
+  font-size: 4em;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+#book-summary > #detailed-description > p {
+  margin-top: 20px;
+  grid-row: 2;
+}
+
+#book-summary > a {
+  grid-row: 2;
+  grid-column: 2;
+  color: #eaeaea;
+  width: fit-content;
+  padding: 20px;
+  font-family: "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 3em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#book-summary > a {
+  grid-row: 2;
+  grid-column: 2;
+  color: #eaeaea;
+  width: fit-content;
+  padding: 20px;
+  font-family: "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 3em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px;
+}
+
+#book-details > #detailed-description > a:hover {
+  color: #08d9d6;
+}
+
+/*****************fim detalhe livros************/
+
+#all-books {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  row-gap: 30px;
+}
+
+#all-books > #book {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 20% 80%;
+  border-bottom: thin solid white;
+  row-gap: 30px;
+  padding-bottom: 30px;
+}
+
+#all-books > #book > img {
+  width: 80%;
+  height: 90%;
+  border-radius: 24px;
+  border: thick solid white;
+  grid-column: 1;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  max-height: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#all-books > #book > h2, #all-books > #book > a > h2 {
+  grid-row: 1;
+  grid-column: 2;
+  text-align: center;
+  font-size: 4em;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  transition: 0.25s;
+}
+
+#all-books > #book > a > h2:hover, #all-books > #book > h2:hover {
+  color:#08d9d6;
+}
+
+#all-books > #book > p {
+  grid-row: 2;
+  grid-column: 2;
+  color: #eaeaea;
+  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-weight: normal;
+  font-size: xx-large;
+  text-align: left;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 7; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.integrante {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

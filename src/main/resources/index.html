@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/10b019f542.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Book to Blind</title>
+  </head>
+
+  <header>
+    <div id="navbar">
+      <a href="index.html" id="nav-item"> <i class="fas fa-home"></i> Home</a>
+      <p>|</p>
+      <a href="detalhe.html" id="nav-item"
+        ><i class="fas fa-book"></i> Livros</a
+      >
+      <p>|</p>
+      <a href="sobre.html" id="nav-item"
+        ><i class="far fa-address-card"></i> Sobre</a
+      >
+    </div>
+  </header>
+
+  <body>
+    <form class="form--register" action="http://localhost:6789/usuario" method="post" id="user-form-add">
+      <p>Nome:</p>          
+      <input class="input--register" type="text" name="nome" value="" placeholder="Usu�rio">
+      <p>Senha:</p>              
+      <input class="input--register" type="text" name="senha" value="" placeholder="Digite a senha">
+      <input type="submit" value="Cadastrar" class="input--main__style input--button">
+    </form>
+
+    <form action="http://localhost:6789/usuario"  method="get" id="user-form-all">
+      <br><br><br>
+    <input type="submit" value="Listar" class="input--consult__style input--button">
+  </form>
+  
+    <h1>Como usar a plataforma?</h1>
+    <p id="description">
+      Nós, da Book 2 Blind, pensamos em tudo para fazer da sua experiência a
+      melhor possível. Para realizar qualquer tarefa, basta pedir algo para mim,
+      sua assistente virtual, <b>Alice</b>!
+    </p>
+    <div id="video" align="center">
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/l-Rqr00vz8g"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <h1>O que esperar da Book 2 Blind?</h1>
+    <p id="description">
+      Aqui, você encontra os melhores livros, os quais selecionados com muito
+      carinho e que serão lidos por mim.Para saber quais estão disponíveis em
+      nossa plataforma, basta me pedir para
+      <br />
+      <b>ver a estante</b>.
+    </p>
+    <h1>Quer saber sobre os criadores?</h1>
+    <p id="description">Ora, basta perguntar: <b>quem são os criadores?</b></p>
+  </body>
+
+  <footer>
+    <div id="navbar"><p class="lower-title">Book 2 Blind</p></div>
+  </footer>
+</html>

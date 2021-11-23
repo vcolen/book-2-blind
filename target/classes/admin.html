@@ -1,0 +1,354 @@
+<html>
+<head>
+<meta content="text/html; charset = UTF-8" http-equiv="content-type">
+
+<title>ADMIN</title>
+</head>
+
+<script type="text/javascript">
+
+function addIdToPath(form_name, base_url){
+	debugger;
+    var your_form = document.getElementById(form_name);
+	var id = your_form.elements.namedItem("id").value;
+	action_src = base_url + id;
+	your_form.action = action_src;
+}
+
+function add2IdsToPath(form_name, base_url){
+	//debugger;
+    var your_form = document.getElementById(form_name);
+	var id1 = your_form.elements.namedItem("id1").value;
+	var id2 = your_form.elements.namedItem("id2").value;
+	action_src = base_url + id1 + "/" + id2;
+	your_form.action = action_src;
+}
+
+</script>
+
+
+<body>
+	<p>
+	<h2>Usuarios</h2>
+	</p>
+	<section class="section--container__responsive">
+		<section class="section--mainrow__responsive first--section">
+			<h1 class="generaltext">Inserir User</h1>
+			<form class="form--register" action="http://localhost:6789/usuario" method="post" id="user-form-add">
+				<p>Nome:</p>          
+				<input class="input--register" type="text" name="nome" value="" placeholder="Usuário">
+				<p>Senha:</p>              
+				<input class="input--register" type="text" name="senha" value="" placeholder="Digite a senha">
+				<input type="submit" value="Cadastrar" class="input--main__style input--button">
+			</form>
+		</section>
+	</section>
+	<section class="section--container__responsive">
+		<section class="section--row__responsive">
+			<h1 class="generaltext">Detalhar User</h1>
+			<form onsubmit="addIdToPath('user-form-get', 'http://localhost:6789/usuario/')" method="get" id="user-form-get">
+				<input class="input--down" type="text" id="id" value="" placeholder="ID do User..."> 
+				<input type="submit" value="Consultar" class="input--button input--consult__style">
+			</form>
+		</section>
+		
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		<section class="section--row__responsive">
+			<h1 class="generaltext">Remover User</h1>
+			<form onsubmit="addIdToPath('user-form-delete', 'http://localhost:6789/usuario/delete/')" method="get" id="user-form-delete">
+				<input class="input--down" type="text" id="id" value="" placeholder="ID do User...">
+				<input type="submit" value="Remover" class="input--remove__style input--button">
+			</form>
+		</section>
+		
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+		<section class="section--row__responsive">
+			<h1 class="generaltext">Listar Usuarios</h1>
+			<form action="http://localhost:6789/usuario"  method="get" id="user-form-all">
+			    <br><br><br>
+				<input type="submit" value="Listar" class="input--consult__style input--button">
+			</form>
+		</section>
+	</section>
+	
+	
+	<p>
+	<h2>Livros</h2>
+	</p>
+	<section class="section--container__responsive">
+		<section class="section--mainrow__responsive first--section">
+			<h1 class="generaltext">Inserir Livro</h1>
+			<form class="form--register" action="http://localhost:6789/livro" method="post" id="livro-form-add">
+				<p>Titulo:</p>          
+				<input class="input--register" type="text" name="titulo" value="" placeholder="Digite o titulo...">
+				<p>Autor:</p>              
+				<input class="input--register" type="text" name="autor" value="" placeholder="Digite o autor...">
+				<p>Categoria:</p>              
+				<input class="input--register" type="text" name="categoria" value="" placeholder="Digite a categoria...">
+				<p>Data de Lançamento:</p>              
+				<input class="input--register" type="text" name="data" value="" placeholder="Data de lançamento...">
+				<p>Quantidade de seções:</p>              
+				<input class="input--register" type="text" name="qtsec" value="" placeholder="QTD de seções...">
+				<p>Sinopse:</p>              
+				<input class="input--register" type="text" name="sinopse" value="" placeholder="Digite a sinopse...">
+				<input type="submit" value="Cadastrar" class="input--main__style input--button">
+			</form>
+		</section>
+	</section>
+	<section class="section--container__responsive">
+		<section class="section--row__responsive">
+			<h1 class="generaltext">Detalhar Livro</h1>
+			<form onsubmit="addIdToPath('livro-form-get', 'http://localhost:6789/livro/')" method="get" id="livro-form-get">
+				<input class="input--down" type="text" id="id" value="" placeholder="ID do Livro..."> 
+				<input type="submit" value="Consultar" class="input--button input--consult__style">
+			</form>
+		</section>
+		
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		<section class="section--row__responsive">
+			<h1 class="generaltext">Remover Livro</h1>
+			<form onsubmit="addIdToPath('livro-form-delete', 'http://localhost:6789/livro/delete/')" method="get" id="livro-form-delete">
+				<input class="input--down" type="text" id="id" value="" placeholder="ID do Livro...">
+				<input type="submit" value="Remover" class="input--remove__style input--button">
+			</form>
+		</section>
+		
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+		<section class="section--row__responsive">
+			<h1 class="generaltext">Listar Livros</h1>
+			<form action="http://localhost:6789/livro"  method="get" id="livro-form-all">
+			    <br><br><br>
+				<input type="submit" value="Listar" class="input--consult__style input--button">
+			</form>
+		</section>
+	</section>
+	
+	
+	<p>
+	<h2>Em Leitura</h2>
+	</p>
+	<section class="section--container__responsive">
+		<section class="section--mainrow__responsive first--section">
+			<h1 class="generaltext">Inserir Em Leitura</h1>
+			<form class="form--register" action="http://localhost:6789/emleitura" method="post" id="emleitura-form-add">
+				<p>Livro:</p>          
+				<input class="input--register" type="text" name="livro" value="" placeholder="ID do livro...">
+				<p>User:</p>              
+				<input class="input--register" type="text" name="user" value="" placeholder="ID do user...">
+				<p>Seção:</p>              
+				<input class="input--register" type="text" name="secao" value="" placeholder="ID da seção...">
+				<input type="submit" value="Cadastrar" class="input--main__style input--button">
+			</form>
+		</section>
+	</section>
+	<section class="section--container__responsive">
+		<section class="section--row__responsive">
+			<h1 class="generaltext">Detalhar Em Leitura</h1>
+			<form onsubmit="add2IdsToPath('emleitura-form-get', 'http://localhost:6789/emleitura/')" method="get" id="emleitura-form-get">
+				<p>Livro:</p>          
+				<input class="input--down" type="text" id="id1" name="livroId" value="" placeholder="ID do Livro...">
+				<p>User:</p>              
+				<input class="input--down" type="text" id="id2" name="userId" value="" placeholder="ID do User..."> 
+				<input type="submit" value="Consultar" class="input--button input--consult__style">
+			</form>
+		</section>
+		
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		<section class="section--row__responsive">
+			<h1 class="generaltext">Remover Em Leitura</h1>
+			<form onsubmit="add2IdsToPath('emleitura-form-delete', 'http://localhost:6789/emleitura/delete/')" method="get" id="emleitura-form-delete">
+				<p>Livro:</p>
+				<input class="input--down" type="text" id="id1" name="livroId" value="" placeholder="ID do Livro...">
+				<p>User:</p>
+				<input class="input--down" type="text" id="id2" name="userId" value="" placeholder="ID do User...">
+				<input type="submit" value="Remover" class="input--remove__style input--button">
+			</form>
+			
+		</section>
+		
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+		<section class="section--row__responsive">
+			<h1 class="generaltext">Listar Em Leitura</h1>
+			<form action="http://localhost:6789/emleitura"  method="get" id="emleitura-form-all">
+			    <br><br><br>
+				<input type="submit" value="Listar" class="input--consult__style input--button">
+			</form>
+		</section>
+	</section>
+	
+	<p>
+	<h2>Conteudo</h2>
+	</p>
+	<section class="section--container__responsive">
+		<section class="section--mainrow__responsive first--section">
+			<h1 class="generaltext">Inserir Conteudo</h1>
+			<form class="form--register" action="http://localhost:6789/conteudo" method="post" id="conteudo-form-add">
+				<p>Livro:</p>          
+				<input class="input--register" type="text" name="livro" value="" placeholder="ID do Livro...">
+				<p>Seção:</p>              
+				<input class="input--register" type="text" name="secao" value="" placeholder="Digite o conteúdo...">
+				<input type="submit" value="Cadastrar" class="input--main__style input--button">
+			</form>
+		</section>
+	</section>
+	<section class="section--container__responsive">
+		<section class="section--row__responsive">
+			<h1 class="generaltext">Detalhar Conteudo</h1>
+			<form onsubmit="add2IdsToPath('conteudo-form-get', 'http://localhost:6789/conteudo/')" method="get" id="conteudo-form-get">
+				<p>Livro:</p>
+				<input class="input--down" type="text" id="id1" name="livroId" value="" placeholder="ID do Livro...">
+				<p>Seção:</p>
+				<input class="input--down" type="text" id="id2" name="secId" value="" placeholder="ID da Seção..."> 
+				<input type="submit" value="Consultar" class="input--button input--consult__style">
+			</form>
+		</section>
+		
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		<section class="section--row__responsive">
+			<h1 class="generaltext">Remover Conteudo</h1>
+			<form onsubmit="add2IdsToPath('conteudo-form-delete', 'http://localhost:6789/conteudo/delete/')" method="get" id="conteudo-form-delete">
+				<p>Livro:</p>
+				<input class="input--down" type="text" id="id1" name="livroId" value="" placeholder="ID do Livro...">
+				<p>Seção:</p>
+				<input class="input--down" type="text" id="id2" name="secId" value="" placeholder="ID da Seção...">
+				<input type="submit" value="Remover" class="input--remove__style input--button">
+			</form>
+		</section>
+		
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+		<section class="section--row__responsive">
+			<h1 class="generaltext">Listar Conteudo</h1>
+			<form action="http://localhost:6789/conteudo"  method="get" id="conteudo-form-all">
+			    <br><br><br>
+				<input type="submit" value="Listar" class="input--consult__style input--button">
+			</form>
+		</section>
+		
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+		<section class="section--row__responsive">
+			<h1 class="generaltext">Listar Conteudo de um Livro</h1>
+			<form onsubmit="addIdToPath('conteudofrom-form-all', 'http://localhost:6789/conteudo-getfrom/')"  method="get" id="conteudofrom-form-all">
+			    <br><br>
+				<p>Livro:</p>
+				<input class="input--down" type="text" id="id" value="" placeholder="ID do Livro...">
+				<input type="submit" value="Listar" class="input--consult__style input--button">
+			</form>
+		</section>
+		
+	</section>
+	
+	<style>
+	
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #1d1d1f;
+}
+
+.generaltext, p  {
+	color: white;
+	font-family: Helvetica;
+	text-align: center;
+}
+
+
+h2 {
+  margin: auto;
+  color: #eaeaea;
+  width: fit-content;
+  padding: 30px;
+  font-family: "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 3em;
+  text-align: center;
+}
+
+.section--container__responsive {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	border-bottom: solid;
+	border-color: rgb(40, 140, 252);
+}
+
+.input--down {
+	display: block;
+	margin: 0px auto;
+	margin-bottom: 10px;
+}
+
+.input--main__style {
+	background-color: #009900;
+}
+
+.input--remove__style {
+	background-color: #990000;
+}
+
+.input--consult__style {
+	background-color: #000099;
+}
+
+.input--button {
+	font-weight: bold;
+	font-family: Arial;
+	font-size: medium;
+	border-color: transparent;
+	display: block;
+	margin: 0px auto;
+	margin-bottom: 10px;
+	color: white;
+}
+
+.input--register {
+	display: inline;
+}
+
+.input--radio {
+	display: inline;
+}
+
+input {
+	display: block;
+	border-radius: 10px;
+	padding: 10px;
+	border-style: solid;
+	border-color: rgb(100, 100, 100);
+	color: rgb(0, 0, 0);
+	padding: 10px;
+	margin-bottom: 6px;
+}
+
+.p--radio__display {
+	display: block;
+}
+
+form p {
+	text-align: initial;
+	display: inline;
+	margin-left: 15px;
+}
+
+.p--nomargin {
+	margin-left: 0px;
+	margin-right: 10px;
+}
+</style>
+
+
+
+</body>
+</html>
