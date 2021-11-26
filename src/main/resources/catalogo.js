@@ -1,26 +1,26 @@
 window.onload = () =>{
     $.ajax({
-        url: `${window.location.protocol}//${window.location.host}/catalogo`,
+        url: "http://localhost:6789/livro",
         type: "GET",
         dataType: "json",
     })
         .done(function (data) {
-            console.log(data);
-            createCard(data);
+            console.log(data)
+            createCard(data)
         });
 }
 
 function createCard(data){
-    cards = "";
-    data.templates.forEach((e) => {
+    cards = ""
+    data.forEach((book) => {
         cards += `<div id="book">
-        <h2>${e.title}</h2>
-        <img src="${e.imgURL}" alt="" />
-        <p id="description">
-          ${e.description}
-        </p>
-      </div>`
-        console.log(e)
+                    <h2>${book.titulo}</h2>
+                    <img src="${book.imgUrl}" alt="" />
+                    <p id="description">
+                    ${book.sinopse}
+                     </p>
+                </div>`
+        console.log(book)
     });
-    $('#selectVibes').html(cards);
+    $('#all-books').html(cards)
 }

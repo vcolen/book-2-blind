@@ -14,6 +14,8 @@ public class App {
 	
 	public static void main(String[] args) {
 		port(6789);
+
+        staticFiles.location("/");
 		
 		post("/usuario", (request, response) -> userS.add(request, response)); //Insere Usuario
         get("/usuario/:id", (request, response) -> userS.get(request, response)); //Detalha um Usuario

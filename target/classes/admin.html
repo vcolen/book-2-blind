@@ -8,7 +8,7 @@
 <script type="text/javascript">
 
 function addIdToPath(form_name, base_url){
-	debugger;
+	//debugger;
     var your_form = document.getElementById(form_name);
 	var id = your_form.elements.namedItem("id").value;
 	action_src = base_url + id;
@@ -36,7 +36,7 @@ function add2IdsToPath(form_name, base_url){
 			<h1 class="generaltext">Inserir User</h1>
 			<form class="form--register" action="http://localhost:6789/usuario" method="post" id="user-form-add">
 				<p>Nome:</p>          
-				<input class="input--register" type="text" name="nome" value="" placeholder="Usuário">
+				<input class="input--register" type="text" name="nome" value="" placeholder="Usuï¿½rio">
 				<p>Senha:</p>              
 				<input class="input--register" type="text" name="senha" value="" placeholder="Digite a senha">
 				<input type="submit" value="Cadastrar" class="input--main__style input--button">
@@ -87,10 +87,10 @@ function add2IdsToPath(form_name, base_url){
 				<input class="input--register" type="text" name="autor" value="" placeholder="Digite o autor...">
 				<p>Categoria:</p>              
 				<input class="input--register" type="text" name="categoria" value="" placeholder="Digite a categoria...">
-				<p>Data de Lançamento:</p>              
-				<input class="input--register" type="text" name="data" value="" placeholder="Data de lançamento...">
-				<p>Quantidade de seções:</p>              
-				<input class="input--register" type="text" name="qtsec" value="" placeholder="QTD de seções...">
+				<p>Data de Lanï¿½amento:</p>              
+				<input class="input--register" type="text" name="data" value="" placeholder="Data de lanï¿½amento...">
+				<p>Quantidade de seï¿½ï¿½es:</p>              
+				<input class="input--register" type="text" name="qtsec" value="" placeholder="QTD de seï¿½ï¿½es...">
 				<p>Sinopse:</p>              
 				<input class="input--register" type="text" name="sinopse" value="" placeholder="Digite a sinopse...">
 				<input type="submit" value="Cadastrar" class="input--main__style input--button">
@@ -139,8 +139,8 @@ function add2IdsToPath(form_name, base_url){
 				<input class="input--register" type="text" name="livro" value="" placeholder="ID do livro...">
 				<p>User:</p>              
 				<input class="input--register" type="text" name="user" value="" placeholder="ID do user...">
-				<p>Seção:</p>              
-				<input class="input--register" type="text" name="secao" value="" placeholder="ID da seção...">
+				<p>Seï¿½ï¿½o:</p>              
+				<input class="input--register" type="text" name="secao" value="" placeholder="ID da seï¿½ï¿½o...">
 				<input type="submit" value="Cadastrar" class="input--main__style input--button">
 			</form>
 		</section>
@@ -191,8 +191,8 @@ function add2IdsToPath(form_name, base_url){
 			<form class="form--register" action="http://localhost:6789/conteudo" method="post" id="conteudo-form-add">
 				<p>Livro:</p>          
 				<input class="input--register" type="text" name="livro" value="" placeholder="ID do Livro...">
-				<p>Seção:</p>              
-				<input class="input--register" type="text" name="secao" value="" placeholder="Digite o conteúdo...">
+				<p>Seï¿½ï¿½o:</p>              
+				<input class="input--register" type="text" name="secao" value="" placeholder="Digite o conteï¿½do...">
 				<input type="submit" value="Cadastrar" class="input--main__style input--button">
 			</form>
 		</section>
@@ -203,8 +203,8 @@ function add2IdsToPath(form_name, base_url){
 			<form onsubmit="add2IdsToPath('conteudo-form-get', 'http://localhost:6789/conteudo/')" method="get" id="conteudo-form-get">
 				<p>Livro:</p>
 				<input class="input--down" type="text" id="id1" name="livroId" value="" placeholder="ID do Livro...">
-				<p>Seção:</p>
-				<input class="input--down" type="text" id="id2" name="secId" value="" placeholder="ID da Seção..."> 
+				<p>Seï¿½ï¿½o:</p>
+				<input class="input--down" type="text" id="id2" name="secId" value="" placeholder="ID da Seï¿½ï¿½o..."> 
 				<input type="submit" value="Consultar" class="input--button input--consult__style">
 			</form>
 		</section>
@@ -216,8 +216,8 @@ function add2IdsToPath(form_name, base_url){
 			<form onsubmit="add2IdsToPath('conteudo-form-delete', 'http://localhost:6789/conteudo/delete/')" method="get" id="conteudo-form-delete">
 				<p>Livro:</p>
 				<input class="input--down" type="text" id="id1" name="livroId" value="" placeholder="ID do Livro...">
-				<p>Seção:</p>
-				<input class="input--down" type="text" id="id2" name="secId" value="" placeholder="ID da Seção...">
+				<p>Seï¿½ï¿½o:</p>
+				<input class="input--down" type="text" id="id2" name="secId" value="" placeholder="ID da Seï¿½ï¿½o...">
 				<input type="submit" value="Remover" class="input--remove__style input--button">
 			</form>
 		</section>

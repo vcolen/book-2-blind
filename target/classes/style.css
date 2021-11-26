@@ -8,10 +8,17 @@ footer {
 
 b {
   color: #ff2e63;
+  transition: 0.25s;
 }
 
 a {
   text-decoration: none;
+  transition: 0.25s;
+}
+
+a:hover,
+b:hover {
+  color: #08d9d6;
 }
 
 #navbar,
@@ -214,7 +221,8 @@ h2 {
   margin-right: auto;
 }
 
-#all-books > #book > h2, #all-books > #book > a > h2 {
+#all-books > #book > h2,
+#all-books > #book > a > h2 {
   grid-row: 1;
   grid-column: 2;
   text-align: center;
@@ -228,8 +236,9 @@ h2 {
   transition: 0.25s;
 }
 
-#all-books > #book > a > h2:hover, #all-books > #book > h2:hover {
-  color:#08d9d6;
+#all-books > #book > a > h2:hover,
+#all-books > #book > h2:hover {
+  color: #08d9d6;
 }
 
 #all-books > #book > p {
@@ -256,4 +265,75 @@ h2 {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+/*******************Pagina de cadastro start ***************/
+
+#cadastro-box,
+#login-box {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+
+.form-register,
+#user-form-get {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  background-color: #ff2e63;
+  padding: 15px;
+  margin: auto;
+  background-color: #ff2e63;
+  color: #eaeaea;
+  width: 95%;
+  border-radius: 24px;
+  font-family: "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: xx-large;
+  border: thick #eaeaea solid;
+}
+
+.input-register,
+.input-consult,
+.input-down {
+  width: 80%;
+  border-radius: 5px;
+  transition: 0.25s;
+  padding: 10px;
+  border: thick #eaeaea solid;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: x-large;
+}
+
+.input-register:hover {
+  border-color: #1d1d1f;
+  border-radius: 24px;
+}
+
+.input-button {
+  background-color: #ff2e63;
+  color: #eaeaea;
+  width: 40%;
+  padding: 20px;
+  border-radius: 32px;
+  font-family: "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: xx-large;
+  transition: 0.25s;
+  border: thick #eaeaea solid;
+  display: block;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.input-button:hover {
+  background-color: #1d1d1f;
+  color: #ff2e63;
+  cursor: pointer;
 }

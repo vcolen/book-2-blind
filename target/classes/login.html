@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/10b019f542.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Login na Book to Blind</title>
-    
-</head>
-<body>
-    
-</body>
+  </head>
+
+  <header>
+    <div id="navbar">
+      <a href="index.html" id="nav-item"> <i class="fas fa-home"></i> Home</a>
+      <p>|</p>
+      <a href="detalhe.html" id="nav-item"
+        ><i class="fas fa-book"></i> Livros</a
+      >
+      <p>|</p>
+      <a href="sobre.html" id="nav-item"
+        ><i class="far fa-address-card"></i> Sobre</a
+      >
+    </div>
+  </header>
+
+  <body>
+    <div id="login-box">
+      <form onsubmit="addIdToPath('user-form-get', 'http://localhost:6789/usuario/')" method="get" id="user-form-get">
+        <p><i class="fas fa-user"></i> Nome</p>
+				<input class="input-down" type="text" id="id" value="" placeholder="Insira seu nome"> 
+				<input type="submit" value="Consultar" class="input-consult">
+
+			</form>
+    </div>
+  </body>
+
+  <footer>
+    <div id="navbar"><p class="lower-title">Book 2 Blind</p></div>
+  </footer>
 </html>
