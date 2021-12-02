@@ -7,15 +7,15 @@ public class Usuario implements Serializable {
 	public static final String nome_PADRAO = "User Padrao";
 	private int id;
 	private String nome;
-	private int senha;
+	private String senha;
 	
 	//Funcoes construtoras
 	public Usuario() {
 		id = 0;
 		nome = nome_PADRAO;
-		senha = 0;
+		senha = nome_PADRAO;
 	}
-	public Usuario(int id, String nome, int senha) {
+	public Usuario(int id, String nome, String senha) {
 		setId(id);
 		setNome(nome);
 		setSenha(senha);
@@ -28,7 +28,7 @@ public class Usuario implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public void setSenha(int senha) {
+	public void setSenha(String senha) {
 		this.senha = senha;
 	}
 	
@@ -39,7 +39,7 @@ public class Usuario implements Serializable {
 	public String getNome() {
 		return nome;
 	}
-	public int getSenha() {
+	public String getSenha() {
 		return senha;
 	}
 	
@@ -49,7 +49,7 @@ public class Usuario implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		String r = "Nome: " + nome + ",ID: " + String.valueOf(id) + ",Senha: " + String.valueOf(senha);
+		String r = "Nome: " + nome + ",ID: " + String.valueOf(id) + ",Senha: " + senha;
 		return r;
 	}
 	

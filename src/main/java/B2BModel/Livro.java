@@ -8,6 +8,8 @@ public class Livro implements Serializable {
 	private int id;
 	private int qtSec;
 	private int data;
+	private float avaliacao;
+	private String capa;
 	private String titulo;
 	private String autor;
 	private String sinopse;
@@ -18,12 +20,14 @@ public class Livro implements Serializable {
 		id = -1;
 		qtSec = -1;
 		data = -1;
+		avaliacao = -1;
+		capa = titulo_PADRAO;
 		titulo = titulo_PADRAO;
 		autor = titulo_PADRAO;
 		sinopse = titulo_PADRAO;
 		categoria = titulo_PADRAO;
 	}
-	public Livro(int id, int qtSec, int data, String titulo, String autor, String categoria, String sinopse) {
+	public Livro(int id, int qtSec, int data, String titulo, String autor, String categoria, String sinopse, String capa, float avaliacao) {
 		setId(id);
 		setQtSec(qtSec);
 		setData(data);
@@ -31,6 +35,8 @@ public class Livro implements Serializable {
 		setAutor(autor);
 		setCategoria(categoria);
 		setSinopse(sinopse);
+		setAvaliacao(avaliacao);
+		setCapa(capa);
 	}
 	
 	//Metodos SET
@@ -42,6 +48,12 @@ public class Livro implements Serializable {
 	}
 	public void setData(int data) {
 		this.data = data;
+	}
+	public void setAvaliacao(float avaliacao) {
+		this.avaliacao = avaliacao;
+	}
+	public void setCapa(String capa) {
+		this.capa = capa;
 	}
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
@@ -65,6 +77,12 @@ public class Livro implements Serializable {
 	}
 	public int getData() {
 		return data;
+	}
+	public float getAvaliacao() {
+		return avaliacao;
+	}
+	public String getCapa() {
+		return capa;
 	}
 	public String getTitulo() {
 		return titulo;
@@ -92,6 +110,6 @@ public class Livro implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "LivroID: " + id + ",Titulo: " + titulo + ",Autor: " + autor + ",QTD de secoes: " + qtSec + ",Data de lancamento: " + data + ",Categoria: " + categoria + ", Sinopse: " + sinopse;
+		return "LivroID: " + id + ",Titulo: " + titulo + ",Autor: " + autor + ",Capa: " + capa + ", Avaliacao: " + avaliacao + ",QTD de secoes: " + qtSec + ",Data de lancamento: " + data + ",Categoria: " + categoria + ", Sinopse: " + sinopse;
 	}
 }

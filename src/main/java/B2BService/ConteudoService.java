@@ -2,6 +2,11 @@ package B2BService;
 import spark.Request;
 import spark.Response;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.json.simple.JSONObject;
+
 import B2BDao.ConteudoDAO;
 import B2BModel.Conteudo;
 
@@ -37,17 +42,19 @@ public class ConteudoService {
 		Conteudo teste = (Conteudo) testeDAO.getConteudo(livroId, secId);
 		
 		if (teste != null) {
-    	    response.header("Content-Type", "application/xml");
-    	    response.header("Content-Encoding", "UTF-8");
+    	    response.header("Content-Type", "application/json");
+			response.header("Content-Encoding", "UTF-8");
 
-            return "<conteudo>\n" + 
-            		"\t<livroId>" + teste.getLivroId() + "</livroId>\n" +
-            		"\t<secId>" + teste.getSecId() + "</secId>\n" +
-            		"\t<sec>" + teste.getSecao() + "</sec>\n" +
-            		"</conteudo>\n";
+			Map<String, Object> livro = new HashMap<>();
+
+			livro.put("sec", teste.getSecao());
+			livro.put("secId", teste.getSecId());
+			livro.put("livroId", teste.getLivroId());
+
+            return new JSONObject(livro);
         } else {
             response.status(404); // 404 Not found
-            return "Secao " + secId + " do Livro " + livroId + " não encontrado.";
+            return "Secao " + secId + " do Livro " + livroId + " nï¿½o encontrado.";
         }
 	}
 
@@ -66,7 +73,7 @@ public class ConteudoService {
             return secId;
         } else {
             response.status(404); // 404 Not found
-            return "Conteudo não encontrado.";
+            return "Conteudo nï¿½o encontrado.";
         }
 	}
 
@@ -84,7 +91,7 @@ public class ConteudoService {
         	return secId;
         } else {
             response.status(404); // 404 Not found
-            return "Conteudo não encontrado.";
+            return "Conteudo nï¿½o encontrado.";
         }
 	}
 

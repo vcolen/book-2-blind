@@ -27,11 +27,11 @@ public class UsuarioDAO {
 			Class.forName(driverName);
 			conexao = DriverManager.getConnection(url, username, password);
 			status = (conexao == null);
-			System.out.println("Conexão efetuada com o postgres!");
+			System.out.println("Conexï¿½o efetuada com o postgres!");
 		} catch (ClassNotFoundException e) { 
-			System.err.println("Conexão NÃO efetuada com o postgres -- Driver não encontrado -- " + e.getMessage());
+			System.err.println("Conexï¿½o Nï¿½O efetuada com o postgres -- Driver nï¿½o encontrado -- " + e.getMessage());
 		} catch (SQLException e) {
-			System.err.println("Conexão NÃO efetuada com o postgres -- " + e.getMessage());
+			System.err.println("Conexï¿½o Nï¿½O efetuada com o postgres -- " + e.getMessage());
 		}
 
 		return status;
@@ -55,7 +55,7 @@ public class UsuarioDAO {
 			Statement st = conexao.createStatement();
 			st.executeUpdate("INSERT INTO usuario (id, nome, senha) "
 				       + "VALUES ("+usuario.getId()+ ", '"  
-				       + usuario.getNome() + "', " + usuario.getSenha() + ");");
+				       + usuario.getNome() + "', '" + usuario.getSenha() + "');");
 			st.close();
 			status = true;
 		} catch (SQLException u) {  
@@ -97,7 +97,7 @@ public class UsuarioDAO {
 	
 		try {
 			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-			ResultSet rs = st.executeQuery("SELECT * FROM usuario");		
+			ResultSet rs = st.executeQuery("SELECT * FROM usuario ORDER BY id");		
 			if(rs.next()){
 				rs.last();
 				usuarios = new Usuario[rs.getRow()];
@@ -105,7 +105,7 @@ public class UsuarioDAO {
 				
 				for(int i = 0; rs.next(); i++) {
 					usuarios[i] = new Usuario(rs.getInt("id"), rs.getString("nome"),
-                		rs.getInt("senha"));
+                		rs.getString("senha"));
 				}
 			}
 			st.close();
@@ -114,6 +114,68 @@ public class UsuarioDAO {
 		}
 		return usuarios;
 	}
+	
+	public Usuario preventSame(String nome) {
+		Usuario[] usuarios = null;
+		
+		try {
+			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+			ResultSet rs = st.executeQuery("SELECT * FROM usuario WHERE nome = '" + nome + "'");		
+			if(rs.next()){
+				rs.last();
+				usuarios = new Usuario[rs.getRow()];
+				rs.beforeFirst();
+				
+				for(int i = 0; rs.next(); i++) {
+					usuarios[i] = new Usuario(rs.getInt("id"), rs.getString("nome"),
+                		rs.getString("senha"));
+				}
+			}
+			st.close();
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		if(usuarios == null) {
+			return null;
+		} else {
+			return usuarios[0];
+		}
+	}
+	
+	public Usuario getLogin(String nome, String senha) {
+		Usuario[] usuarios = null;
+		
+		try {
+			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+			ResultSet rs = st.executeQuery("SELECT * FROM usuario WHERE nome = '" + nome + "' AND senha = '" + senha + "'");		
+			if(rs.next()){
+				rs.last();
+				usuarios = new Usuario[rs.getRow()];
+				rs.beforeFirst();
+				
+				for(int i = 0; rs.next(); i++) {
+					usuarios[i] = new Usuario(rs.getInt("id"), rs.getString("nome"),
+                		rs.getString("senha"));
+				}
+			}
+			st.close();
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		return usuarios[0];
+	}
+	
+	/*
+	public Usuario getLogin(String nome, int senha) {
+		Usuario[] teste = this.getAllUser();
+		for(int i = 0; i < teste.length; i++) {
+			if(teste[i].getNome().equals(nome) && teste[i].getSenha() == senha) {
+				return teste[i];
+			}
+		}
+		return null;
+	}
+	*/
 	
 	public Usuario getUser(int id) {
 		Usuario[] teste = this.getAllUser();

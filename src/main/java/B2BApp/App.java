@@ -19,6 +19,7 @@ public class App {
 		
 		post("/usuario", (request, response) -> userS.add(request, response)); //Insere Usuario
         get("/usuario/:id", (request, response) -> userS.get(request, response)); //Detalha um Usuario
+        get("/usuario/login/:id1/:id2", (request, response) -> userS.login(request, response)); //Realiza o login de um Usuario
         get("/usuario/update/:id", (request, response) -> userS.update(request, response)); //Atualiza um Usuario
         get("/usuario/delete/:id", (request, response) -> userS.remove(request, response)); //Remove um Usuario
         get("/usuario", (request, response) -> userS.getAll(request, response)); //Detalha todos os Usuarios

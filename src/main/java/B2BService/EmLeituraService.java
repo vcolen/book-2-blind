@@ -2,6 +2,11 @@ package B2BService;
 import spark.Request;
 import spark.Response;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.json.simple.JSONObject;
+
 import B2BDao.EmLeituraDAO;
 import B2BModel.EmLeitura;
 
@@ -32,17 +37,19 @@ public class EmLeituraService {
 		EmLeitura teste = (EmLeitura) testeDAO.getEmLeitura(userId, livroId);
 		
 		if (teste != null) {
-    	    response.header("Content-Type", "application/xml");
+    	    response.header("Content-Type", "application/json");
     	    response.header("Content-Encoding", "UTF-8");
 
-            return "<emLeitura>\n" + 
-            		"\t<livroId>" + teste.getLivroId() + "</livroId>\n" +
-            		"\t<userId>" + teste.getUserId() + "</userId>\n" +
-            		"\t<secAtual>" + teste.getSecAtual() + "</secAtual>\n" +
-            		"</emLeitura>\n";
+			Map<String, Object> livro = new HashMap<>();
+
+			livro.put("livroId", teste.getLivroId());
+			livro.put("userId", teste.getUserId());
+			livro.put("secAtual", teste.getSecAtual());
+
+			return new JSONObject(livro);
         } else {
             response.status(404); // 404 Not found
-            return "Usuario " + userId + " com registro do Livro " + livroId + " não encontrado.";
+            return "Usuario " + userId + " com registro do Livro " + livroId + " nï¿½o encontrado.";
         }
 	}
 
@@ -61,7 +68,7 @@ public class EmLeituraService {
             return true;
         } else {
             response.status(404); // 404 Not found
-            return "EmLeitura não encontrado.";
+            return "EmLeitura nï¿½o encontrado.";
         }
 	}
 
@@ -79,7 +86,7 @@ public class EmLeituraService {
         	return true;
         } else {
             response.status(404); // 404 Not found
-            return "EmLeitura não encontrado.";
+            return "EmLeitura nï¿½o encontrado.";
         }
 	}
 

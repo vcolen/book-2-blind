@@ -27,11 +27,11 @@ public class EmLeituraDAO {
 			Class.forName(driverName);
 			conexao = DriverManager.getConnection(url, useraname, password);
 			status = (conexao == null);
-			System.out.println("Conexão efetuada com o postgres!");
+			System.out.println("Conexï¿½o efetuada com o postgres!");
 		} catch (ClassNotFoundException e) { 
-			System.err.println("Conexão NÃO efetuada com o postgres -- Driver não encontrado -- " + e.getMessage());
+			System.err.println("Conexï¿½o Nï¿½O efetuada com o postgres -- Driver nï¿½o encontrado -- " + e.getMessage());
 		} catch (SQLException e) {
-			System.err.println("Conexão NÃO efetuada com o postgres -- " + e.getMessage());
+			System.err.println("Conexï¿½o Nï¿½O efetuada com o postgres -- " + e.getMessage());
 		}
 
 		return status;
@@ -97,7 +97,7 @@ public class EmLeituraDAO {
 	
 		try {
 			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-			ResultSet rs = st.executeQuery("SELECT * FROM emleitura");		
+			ResultSet rs = st.executeQuery("SELECT * FROM emleitura ORDER BY userid");		
 			if(rs.next()){
 				rs.last();
 				emLeituras = new EmLeitura[rs.getRow()];

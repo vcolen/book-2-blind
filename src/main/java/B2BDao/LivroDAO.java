@@ -26,11 +26,11 @@ public class LivroDAO {
 			Class.forName(driverName);
 			conexao = DriverManager.getConnection(url, username, password);
 			status = (conexao == null);
-			System.out.println("Conexão efetuada com o postgres!");
+			System.out.println("Conexï¿½o efetuada com o postgres!");
 		} catch (ClassNotFoundException e) { 
-			System.err.println("Conexão NÃO efetuada com o postgres -- Driver não encontrado -- " + e.getMessage());
+			System.err.println("Conexï¿½o Nï¿½O efetuada com o postgres -- Driver nï¿½o encontrado -- " + e.getMessage());
 		} catch (SQLException e) {
-			System.err.println("Conexão NÃO efetuada com o postgres -- " + e.getMessage());
+			System.err.println("Conexï¿½o Nï¿½O efetuada com o postgres -- " + e.getMessage());
 		}
 
 		return status;
@@ -52,9 +52,10 @@ public class LivroDAO {
 		boolean status = false;
 		try {  
 			Statement st = conexao.createStatement();
-			st.executeUpdate("INSERT INTO livro (id, qtsec, data, titulo, categoria, sinopse, autor) "
+			st.executeUpdate("INSERT INTO livro (id, qtsec, data, titulo, categoria, sinopse, autor, capa, avaliacao) "
 				       + "VALUES ("+ livro.getId() + ", "  + livro.getQtSec() + ", " + livro.getData() + ", '" 
-					+ livro.getTitulo() + "', '" + livro.getCategoria() +"', '" + livro.getSinopse() + "', '" + livro.getAutor() + "');");
+					+ livro.getTitulo() + "', '" + livro.getCategoria() +"', '" + livro.getSinopse() + "', '" 
+				       + livro.getAutor() + "', '" + livro.getCapa() + "', " + livro.getAvaliacao() + ");");
 			st.close();
 			status = true;
 		} catch (SQLException u) {  
@@ -70,6 +71,22 @@ public class LivroDAO {
 			Statement st = conexao.createStatement();
 			String sql = "UPDATE livro SET autor = '" + livro.getAutor() + "', titulo = '" + livro.getTitulo() 
 			+ "', categoria = '" + livro.getCategoria() + " WHERE id = " + livro.getId();
+			st.executeUpdate(sql);
+			st.close();
+			status = true;
+		} catch (SQLException u) {  
+			throw new RuntimeException(u);
+		}
+		
+		return status;
+	}
+	
+	public boolean atualizarRating(Livro livro) {
+		boolean status = false;
+		
+		try {  
+			Statement st = conexao.createStatement();
+			String sql = "UPDATE livro SET avaliacao = " + livro.getAvaliacao() + " WHERE id = " + livro.getId();
 			st.executeUpdate(sql);
 			st.close();
 			status = true;
@@ -98,7 +115,7 @@ public class LivroDAO {
 
 		try {
 			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-			ResultSet rs = st.executeQuery("SELECT * FROM livro");		
+			ResultSet rs = st.executeQuery("SELECT * FROM livro ORDER BY id");		
 	         if(rs.next()){
 	             rs.last();
 	             livros = new Livro[rs.getRow()];
@@ -106,7 +123,7 @@ public class LivroDAO {
 
 	             for(int i = 0; rs.next(); i++) {
 	                livros[i] = new Livro(rs.getInt("id"), rs.getInt("qtsec"), rs.getInt("data"), rs.getString("titulo"), rs.getString("autor"), 
-	                		rs.getString("categoria"), rs.getString("sinopse"));
+	                		rs.getString("categoria"), rs.getString("sinopse"), rs.getString("capa"), rs.getFloat("avaliacao"));
 	             }
 	         } 
 	          st.close();

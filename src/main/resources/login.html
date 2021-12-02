@@ -16,7 +16,7 @@
     <div id="navbar">
       <a href="index.html" id="nav-item"> <i class="fas fa-home"></i> Home</a>
       <p>|</p>
-      <a href="detalhe.html" id="nav-item"
+      <a href="http://localhost:6789/catalogo.html" id="nav-item"
         ><i class="fas fa-book"></i> Livros</a
       >
       <p>|</p>
@@ -27,17 +27,28 @@
   </header>
 
   <body>
+    <h1>Seja bem-vindo(a) de volta!</h1>
     <div id="login-box">
-      <form onsubmit="addIdToPath('user-form-get', 'http://localhost:6789/usuario/')" method="get" id="user-form-get">
-        <p><i class="fas fa-user"></i> Nome</p>
-				<input class="input-down" type="text" id="id" value="" placeholder="Insira seu nome"> 
-				<input type="submit" value="Consultar" class="input-consult">
-
+      <form onsubmit="addIdToPath('user-form-get', 'http://localhost:6789/usuario/login/')" method="get" id="user-form-get">
+        <p><i class="fas fa-envelope"></i> Email</p>
+				<input class="input-down" type="email" id="id" value="" placeholder="Diga ou Digite seu Email"> 
+        <p><i class="fas fa-user-lock"></i> Senha:</p>              
+				<input class="input-down" type="password" id="id2" name="userSenha" value="" placeholder="Diga ou Digite sua Senha"> 
+				<input type="submit" value="Login" class="input-button" onclick="checkUserData()">
 			</form>
     </div>
+
+    <p id="description">
+      Não tem conta ainda? <a href="cadastro.html"><b>Cadastre-se!</b></a>
+      </p>
+
   </body>
 
   <footer>
     <div id="navbar"><p class="lower-title">Book 2 Blind</p></div>
   </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="login.js"></script>
+
 </html>
