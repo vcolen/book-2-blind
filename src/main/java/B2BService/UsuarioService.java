@@ -29,16 +29,17 @@ public class UsuarioService {
 	}
 
 	public Object add(Request request, Response response) throws Exception {
-		String nome = request.queryParams("nome");
-		if (testeDAO.preventSame(nome) != null) {
-			response.status(404); // 404 Not found
-			return "Email " + nome + " invalido.";
-		} else {
+		String email = request.queryParams("email");
+		String senha = request.queryParams("senha");
 
-			String senha = hash(request.queryParams("senha"));
+		if (testeDAO.preventSame(email) != null) {
+			response.status(404); // 404 Not found
+			return "Email " + email + " invalido.";
+		} else {
+			senha = hash(senha);
 			int id = testeDAO.getMaxId() + 1;
 
-			Usuario user = new Usuario(id, nome, senha);
+			Usuario user = new Usuario(id, email, senha);
 			testeDAO.addUser(user);
 
 			response.status(201); // 201 Created

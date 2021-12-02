@@ -260,6 +260,19 @@ function add2IdsToPath(form_name, base_url){
 		</section>
 		
 	</section>
+
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		<section class="section--row__responsive">
+			<h1 class="generaltext">Ler Secao de um Livro</h1>
+			<form onsubmit="add2IdsToPath('conteudo-form-read', 'http://localhost:6789/conteudo/read/')" method="get" id="conteudo-form-read">
+				<p>Livro:</p>
+				<input class="input--down" type="text" id="id1" name="livroId" value="" placeholder="ID do Livro...">
+				<p>Secao:</p>
+				<input class="input--down" type="text" id="id2" name="secId" value="" placeholder="ID da Secao...">
+				<input type="submit" value="Ler" class="input--remove__style input--button">
+			</form>
+		</section>
 	
 	<style>
 	

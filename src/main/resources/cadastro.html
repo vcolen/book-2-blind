@@ -14,7 +14,7 @@
 
   <header>
     <div id="navbar">
-      <a href="index.html" id="nav-item"> <i class="fas fa-home"></i> Home</a>
+      <a href="http://localhost:6789/index.html" id="nav-item"> <i class="fas fa-home"></i> Home</a>
       <p>|</p>
       <a href="http://localhost:6789/catalogo.html" id="nav-item"
         ><i class="fas fa-book"></i> Livros</a
@@ -44,6 +44,7 @@
           type="text"
           name="nome"
           value=""
+          id="id"
           placeholder="Diga ou Digite seu Email"
         />
 
@@ -53,9 +54,10 @@
           type="password"
           name="senha"
           value=""
+          id="id2"
           placeholder="Diga ou Digite uma Senha"
         />
-        <input type="submit" value="Cadastrar" class="input-button" />
+        <input type="submit" value="Cadastrar" class="input-button" id="submit" onclick="checkUserData()"/>
       </form>
     </div>
     <p id="description">

@@ -34,7 +34,7 @@ public class App {
         
         post("/emleitura", (request, response) -> readingS.add(request, response)); //Insere um EmLeitura
         get("/emleitura/:id1/:id2", (request, response) -> readingS.get(request, response)); //Detalha um EmLeitura
-        get("/emleitura/update/:id1/:id2", (request, response) -> readingS.update(request, response)); //Atualiza um EmLeitura
+        put("/emleitura/update/:id1/:id2", (request, response) -> readingS.update(request, response)); //Atualiza um EmLeitura
         get("/emleitura/delete/:id1/:id2", (request, response) -> readingS.remove(request, response)); //Remove um EmLeitura
         get("/emleitura", (request, response) -> readingS.getAll(request, response)); //Detalha todos os EmLeitura
         

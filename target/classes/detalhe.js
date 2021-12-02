@@ -1,15 +1,24 @@
+var book = "";
+var user = undefined;
 window.onload = () => {
   const urlParams = new URLSearchParams(window.location.search);
-  const id = urlParams.get("id");
+  book = urlParams.get("book");
+
+  if (
+    urlParams.get("user") != null &&
+    urlParams.get("user") != undefined &&
+    urlParams.get("user") != 0
+  ) {
+    user = urlParams.get("user");
+  }
   $.ajax({
-    url: `http://localhost:6789/livro/${id}`,
+    url: `http://localhost:6789/livro/${book}`,
     type: "GET",
     dataType: "json",
   }).done(function (data) {
     createBookInDetalhe(data);
   });
 };
-
 
 function createBookInDetalhe(data) {
   book = `      <img src="${data.capa}" alt="" id="book-img-detail" />
@@ -20,7 +29,7 @@ function createBookInDetalhe(data) {
                         <p id="description">Categoria: ${data.categoria}</p>
                         <p id="description">Avaliação: ${data.avaliacao}.</p>
                 </div>
-                <button id="ler" onclick="window.location.href='/conteudo.html?id1=${data.id}&id2=2'"><i class="fas fa-book-open"></i> Ler</button>`;
+                <button id="ler" onclick="window.location.href='/conteudo.html?id1=${data.id}&id2=${user}'"><i class="fas fa-book-open"></i> Ler</button>`;
 
   description = `<p>
                 ${data.sinopse}

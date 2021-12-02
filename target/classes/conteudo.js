@@ -1,37 +1,62 @@
+var book = "";
+var user = undefined;
+var secao = "";
+
 window.onload = () => {
   const urlParams = new URLSearchParams(window.location.search);
-  const livro = urlParams.get("id1");
-  //const secao = urlParams.get("id2")
-  const secao = 3;
-  const usuario = 1;
+  if (urlParams.get("id2") == "undefined" || urlParams.get("id2") == null) {
+    alert("Por favor, faça login para ler um livro.");
+    window.location.replace("http://localhost:6789/catalogo.html");
+  } else {
+    user = urlParams.get("id2");
+    setNavbar();
+
+    book = urlParams.get("id1");
+
+  }
 
   $.ajax({
-    url: `http://localhost:6789/livro/${livro}`,
+    url: `http://localhost:6789/emleitura/${book}/${user}`,
     type: "GET",
     dataType: "json",
-  }).done(function (title) {
-    createBookTitle(title);
+  }).done(function (data) {
+    secao = data.secAtual;
+    $("#startSpeakTextAsyncButton").html(`<i class="fas fa-play"></i> Reproduzir Seção ${secao}`)
+    $.ajax({
+      url: `http://localhost:6789/conteudo/${book}/${data.secAtual}`,
+      type: "GET",
+      dataType: "json",
+    }).done(function (data) {
+      createBookSection(data);
+      createNextSectionButton();
+    });
   });
-  
-  // $.ajax({
-  //   url: `http://localhost:6789/emleitura/${livro}/${usuario}`,
-  //   type: "GET",
-  //   dataType: "json",
-  // }).done(function (livro, secao) {
-  $.ajax({
-    url: `http://localhost:6789/conteudo/${livro}/${secao}`,
-    type: "GET",
-    dataType: "json",
-  }).done(function (sec) {
-    createBookSection(sec);
-  });
-  // });
 
-  
+  $.ajax({
+    url: `http://localhost:6789/livro/${book}`,
+    type: "GET",
+    dataType: "json",
+  }).done(function (data) {
+    createBookTitle(data);
+  });
 };
 
-function createBookTitle(title) {
-  $("#book-title").html(title.titulo);
+function setNavbar() {
+  navbar = `<a href="http://localhost:6789/index.html?id=${user}" id="nav-item"> <i class="fas fa-home"></i> Home</a>
+      <p>|</p>
+      <a href="http://localhost:6789/catalogo.html?id=${user}" id="nav-item"
+        ><i class="fas fa-book"></i> Livros</a
+      >
+      <p>|</p>
+      <a href="http://localhost:6789/sobre.html?id=${user}" id="nav-item"
+        ><i class="far fa-address-card"></i> Sobre</a
+      >`;
+
+  $("#navbar").html(navbar);
+}
+
+function createBookTitle(data) {
+  $("#book-title").html(data.titulo);
 }
 
 function createBookSection(sec) {
@@ -39,11 +64,50 @@ function createBookSection(sec) {
 }
 
 function createNextSectionButton() {
-  buttons = `<button id="voltar-secao">Seção anterior</button>
-    <button id="salvar-secao">Salvar seção</button>
-    <button id="proxima-secao">Próxima seção</button>`;
+  if (secao == 1) {
+    buttons = `<button id="voltar-secao" disabled><i class="fas fa-angle-double-left"></i> <br> Seção anterior</button>
+    <button id="proxima-secao" onclick="nextSection()"><i class="fas fa-angle-double-right"></i><br>Próxima seção</button>`;
+  } else if (secao == 100) {
+    buttons = `<button id="voltar-secao" onclick="previousSection()"><i class="fas fa-angle-double-left"></i> <br> Seção anterior</button>
+    <button id="proxima-secao" disabled><i class="fas fa-angle-double-right"></i><br>Próxima seção</button>`;
+  } else {
+    buttons = `<button id="voltar-secao" onclick="previousSection()"><i class="fas fa-angle-double-left"></i> <br> Seção anterior</button>
+    <button id="proxima-secao" onclick="nextSection()"><i class="fas fa-angle-double-right"></i><br>Próxima seção</button>`;
+  }
 
   $("#button-section").html(buttons);
+}
+
+function nextSection() {
+  $.ajax({
+    url: `http://localhost:6789/emleitura/update/${book}/${user}`,
+    type: "PUT",
+    dataType: "json",
+    data: {
+      secAtual: secao + 1
+    }
+  }).done(function(data) {
+    console.log(data);
+    window.location.replace(`http://localhost:6789/conteudo.html?id1=${book}&id2=${user}`)
+  }).fail(function(error) {
+    console.error(error);
+  });
+}
+
+function previousSection() {
+  $.ajax({
+    url: `http://localhost:6789/emleitura/update/${book}/${user}`,
+    type: "PUT",
+    dataType: "json",
+    data: {
+      secAtual: secao - 1
+    }
+  }).done(function(data) {
+    console.log(data);
+    window.location.replace(`http://localhost:6789/conteudo.html?id1=${book}&id2=${user}`)
+  }).fail(function(error) {
+    console.error(error);
+  });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -94,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       function (err) {
         startSpeakTextAsyncButton.disabled = false;
-        console.log("Error: " + err);
+        window.console.log("Error: " + err);
 
         synthesizer.close();
         synthesizer = undefined;

@@ -29,12 +29,12 @@
   <body>
     <h1>Seja bem-vindo(a) de volta!</h1>
     <div id="login-box">
-      <form onsubmit="addIdToPath('user-form-get', 'http://localhost:6789/usuario/login/')" method="get" id="user-form-get">
+      <form id="user-form-get">
         <p><i class="fas fa-envelope"></i> Email</p>
 				<input class="input-down" type="email" id="id" value="" placeholder="Diga ou Digite seu Email"> 
         <p><i class="fas fa-user-lock"></i> Senha:</p>              
 				<input class="input-down" type="password" id="id2" name="userSenha" value="" placeholder="Diga ou Digite sua Senha"> 
-				<input type="submit" value="Login" class="input-button" onclick="checkUserData()">
+				<input type="submit" value="Login" class="input-button" onclick="checkUserData()" id="submit">
 			</form>
     </div>
 

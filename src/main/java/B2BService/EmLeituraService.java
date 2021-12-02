@@ -56,12 +56,14 @@ public class EmLeituraService {
 	public Object update(Request request, Response response) {
 		int livroId = Integer.parseInt(request.params(":id1"));
 		int userId = Integer.parseInt(request.params(":id2"));
-		
+		int secAtual = Integer.parseInt(request.queryParams("secAtual"));
+
 		EmLeitura teste = (EmLeitura) testeDAO.getEmLeitura(userId, livroId);
 
         if (teste != null) {
-        	teste.setUserId(Integer.parseInt(request.queryParams("user")));
-        	teste.setLivroId(Integer.parseInt(request.queryParams("livro")));
+        	teste.setUserId(userId);
+        	teste.setLivroId(livroId);
+			teste.setSecAtual(secAtual);
 
         	testeDAO.updateEmLeitura(teste);
         	
