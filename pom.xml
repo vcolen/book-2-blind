@@ -24,9 +24,21 @@
       <artifactId>slf4j-simple</artifactId>
       <version>1.7.21</version>
    </dependency>
+   <dependency>
+    <groupId>com.microsoft.cognitiveservices.speech</groupId>
+    <artifactId>client-sdk</artifactId>
+    <version>1.19.0</version>
+  </dependency>
   </dependencies>  
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
+  <repositories>
+  <repository>
+    <id>maven-cognitiveservices-speech</id>
+    <name>Microsoft Cognitive Services Speech Maven Repository</name>
+    <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+  </repository>
+</repositories>
 </project>

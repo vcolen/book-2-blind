@@ -12,6 +12,8 @@ function checkUserData() {
     user = data.id;
     alert("Login realizado com sucesso. Você será redirecionado para o nosso catálogo.")
     window.location.replace(`http://localhost:6789/catalogo.html?id=${user}`)
+  }).fail(function (error) {
+    alert("Credenciais incorretas.")
   })
 }
 

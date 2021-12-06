@@ -9,7 +9,7 @@ window.onload = () => {
     createBookInCatalog(data);
   });
   const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get("id") != null) {
+  if (urlParams.get("id") != "undefined" && urlParams.get("id") != null) {
     user = urlParams.get("id");
     setNavbar();
   }

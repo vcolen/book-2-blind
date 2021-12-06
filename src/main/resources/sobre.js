@@ -3,7 +3,7 @@ var user = undefined;
 window.onload = () => {
   const urlParams = new URLSearchParams(window.location.search);
 
-  if (urlParams.get("id") != null && urlParams.get("id") != "undefined") {
+  if (urlParams.get("id") != null && urlParams.get("id") != undefined) {
     user = urlParams.get("id");
     setNavbar();
   }

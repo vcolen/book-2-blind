@@ -1,4 +1,5 @@
 package B2BService;
+import B2BDao.LivroDAO;
 import spark.Request;
 import spark.Response;
 
@@ -28,6 +29,16 @@ public class EmLeituraService {
 
 		response.status(201); // 201 Created
 		return userId + " " + livroId;
+	}
+
+	public void addALL(int userId) {
+		EmLeitura teste;
+		LivroDAO tmp = new LivroDAO();
+		tmp.conectar();
+		for(int i = 1; i <= tmp.getMaxId(); i++ ) {
+			teste = new EmLeitura(i, userId, 1);
+			testeDAO.addEmLeitura(teste);
+		}
 	}
 
 	public Object get(Request request, Response response) {

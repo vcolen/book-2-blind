@@ -4,6 +4,7 @@ import spark.Request;
 import spark.Response;
 import B2BDao.UsuarioDAO;
 import B2BModel.Usuario;
+import B2BService.EmLeituraService;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -23,13 +24,20 @@ public class UsuarioService {
 
 	public String hash(String base) throws Exception {
 		MessageDigest m = MessageDigest.getInstance("MD5");
-	    m.update(base.getBytes(), 0, base.length());
-	    String novo = new BigInteger(1, m.digest()).toString(16);
+		m.update(base.getBytes(), 0, base.length());
+		String novo = new BigInteger(1, m.digest()).toString(16);
 		return novo;
 	}
 
 	public Object add(Request request, Response response) throws Exception {
 		String email = request.queryParams("email");
+		email = email.replaceAll("\"", "");
+		email = email.replaceAll("\'", "");
+		email = email.replace("+", "");
+		email = email.replace("=", "");
+		email = email.replace("/", "");
+		email = email.replace("\\", "");
+		email = email.replace("\'", "");
 		String senha = request.queryParams("senha");
 
 		if (testeDAO.preventSame(email) != null) {
@@ -39,8 +47,12 @@ public class UsuarioService {
 			senha = hash(senha);
 			int id = testeDAO.getMaxId() + 1;
 
+			System.out.println(id);
+			EmLeituraService tmp = new EmLeituraService();
+
 			Usuario user = new Usuario(id, email, senha);
 			testeDAO.addUser(user);
+			tmp.addALL(id);
 
 			response.status(201); // 201 Created
 			response.redirect("/catalogo.html");
@@ -86,7 +98,7 @@ public class UsuarioService {
 		}
 	}
 
-	public Object login(Request request, Response response) throws Exception{
+	public Object login(Request request, Response response) throws Exception {
 		String nome = request.params(":id1");
 		String senha = hash(request.params(":id2"));
 

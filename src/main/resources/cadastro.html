@@ -14,7 +14,9 @@
 
   <header>
     <div id="navbar">
-      <a href="http://localhost:6789/index.html" id="nav-item"> <i class="fas fa-home"></i> Home</a>
+      <a href="http://localhost:6789/index.html" id="nav-item">
+        <i class="fas fa-home"></i> Home</a
+      >
       <p>|</p>
       <a href="http://localhost:6789/catalogo.html" id="nav-item"
         ><i class="fas fa-book"></i> Livros</a
@@ -45,6 +47,10 @@
           name="nome"
           value=""
           id="id"
+          pattern="/
+          .+\@.+\..+
+          /
+          "
           placeholder="Diga ou Digite seu Email"
         />
 
@@ -57,7 +63,13 @@
           id="id2"
           placeholder="Diga ou Digite uma Senha"
         />
-        <input type="submit" value="Cadastrar" class="input-button" id="submit" onclick="checkUserData()"/>
+        <input
+          type="submit"
+          value="Cadastrar"
+          class="input-button"
+          id="submit"
+          onclick="checkUserData()"
+        />
       </form>
     </div>
     <p id="description">
@@ -71,5 +83,4 @@
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="cadastro.js"></script>
-
 </html>
